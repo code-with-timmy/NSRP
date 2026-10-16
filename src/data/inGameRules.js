@@ -1,0 +1,142 @@
+// In-Game Rules data for ER:LC roleplay violations.
+import {
+  Drama, Siren, Crosshair, Ambulance, Car, ShieldCheck, Lock, Shirt, Ban,
+} from 'lucide-react';
+
+export const PUNISHMENTS = {
+  vw: { label: 'Verbal Warning' },
+  w: { label: 'Official Warning' },
+  k: { label: 'Kick' },
+  b: { label: 'Ban' },
+  pb: { label: 'Permanent Ban' },
+};
+
+export const inGameRuleCategories = [
+  {
+    title: 'Roleplay Rules',
+    icon: Drama,
+    rules: [
+      { name: 'Random Death Match (RDM)', desc: 'Killing another player without a valid roleplay reason.', punishments: ['w'] },
+      { name: 'Vehicle Death Match (VDM)', desc: 'Intentionally using a vehicle to hit or kill another player without a valid roleplay reason.', punishments: ['w'] },
+      { name: 'Mass RDM', desc: 'Killing 3 or more players without a valid roleplay reason.', punishments: ['k'] },
+      { name: 'Mass VDM', desc: 'Using a vehicle to hit or kill multiple players without a valid roleplay reason.', punishments: ['k'] },
+      { name: 'Fail Roleplay (Fail RP)', desc: 'Failing to maintain realistic roleplay or ignoring realistic situations.', punishments: ['w'] },
+      { name: 'Fear Roleplay (Fear RP)', desc: 'Failing to value your character\'s life or comply with realistic threats.', punishments: ['w'] },
+      { name: 'New Life Rule (NLR)', desc: 'Returning to a roleplay scene or using information from a previous life after dying.', punishments: ['w'] },
+      { name: 'LTAP (Leaving to Avoid Punishment)', desc: 'Leaving the game or server to avoid an arrest, punishment, or other roleplay consequence.', punishments: ['k', 'b'] },
+      { name: 'Not in Required Roleplay VC', desc: 'Playing in-game without joining the required roleplay voice channel.', punishments: ['k'] },
+      { name: 'Metagaming', desc: 'Using information your character did not obtain through roleplay.', punishments: ['w'] },
+      { name: 'Powergaming', desc: 'Forcing actions or outcomes onto another player without allowing them a reasonable opportunity to respond.', punishments: ['w'] },
+      { name: 'Cop Baiting', desc: 'Intentionally provoking law enforcement solely to create a pursuit or police interaction.', punishments: ['w'] },
+      { name: 'NITRP', desc: 'Joining the server without intending to actually roleplay.', punishments: ['k', 'b'] },
+      { name: 'Trolling', desc: 'Intentionally disrupting or ruining other players\' roleplay.', punishments: ['w'] },
+      { name: 'Revenge Killing', desc: 'Returning to kill or attack someone because of an earlier interaction or death.', punishments: ['k'] },
+      { name: 'Spawn Killing', desc: 'Killing or attacking a player immediately after they spawn.', punishments: ['b'] },
+    ],
+  },
+  {
+    title: 'Department Rules',
+    icon: Siren,
+    rules: [
+      { name: 'Department Impersonation', desc: 'Pretending to be a member of a department you are not authorized to join.', punishments: ['w'] },
+      { name: 'Unauthorized Gear', desc: 'Using restricted department equipment without authorization.', punishments: ['w'] },
+      { name: 'Unauthorized Vehicles', desc: 'Using restricted department vehicles without authorization.', punishments: ['w'] },
+      { name: 'Unauthorized Uniforms', desc: 'Wearing restricted department uniforms without authorization.', punishments: ['w'] },
+      { name: 'Unauthorized Whitelisted Items', desc: 'Using restricted items such as Undercover, SWAT, Grappler, or Supervisor equipment without authorization.', punishments: ['k'] },
+      { name: 'Failure to Request Permission', desc: 'Starting roadwork or large roleplay scenarios without the required permission.', punishments: ['w'] },
+      { name: 'Unauthorized Department Switching', desc: 'Switching departments to evade an ongoing incident, restriction, or punishment.', punishments: ['w'] },
+      { name: 'Rank Impersonation', desc: 'Claiming to hold a department rank that you do not actually have.', punishments: ['w', 'k'] },
+      { name: 'Department Abuse', desc: 'Using department access, equipment, or privileges to gain an unfair advantage.', punishments: ['k', 'b'] },
+      { name: 'Department Trolling', desc: 'Using department vehicles, equipment, or tools to intentionally disrupt roleplay.', punishments: ['k', 'b'] },
+    ],
+  },
+  {
+    title: 'Weapons & Criminal RP',
+    icon: Crosshair,
+    rules: [
+      { name: 'Unjustified Shooting', desc: 'Shooting another player without a valid RP reason.', punishments: ['b'] },
+      { name: 'Unnecessary Shooting', desc: 'Using a firearm when deadly force is not reasonably necessary.', punishments: ['w'] },
+      { name: 'Random Shootout', desc: 'Starting a gunfight without proper RP initiation.', punishments: ['k', 'b'] },
+      { name: 'Banned Firearm and Vehicle Usage', desc: 'Using prohibited firearms or vehicles.', punishments: ['k'] },
+      { name: 'Gangs — Robbing Alone', desc: 'Conducting a gang robbery without meeting the server\'s required roleplay or gang-member requirements.', punishments: ['k'] },
+      { name: 'Unrealistic Robbery', desc: 'Conducting a robbery in a clearly unrealistic manner.', punishments: ['w'] },
+      { name: 'Unrealistic Hostage RP', desc: 'Using hostages in an unrealistic, abusive, or unreasonable manner.', punishments: ['w'] },
+      { name: 'Fake Emergency Calls', desc: 'Making fake 911 calls or emergency requests solely to troll or waste department resources.', punishments: ['w'] },
+      { name: 'Safe-Zone Violations', desc: 'Starting major criminal activity, shootings, or other serious RP in protected areas.', punishments: ['w'] },
+    ],
+  },
+  {
+    title: 'LEO / FD / EMS Rules',
+    icon: Ambulance,
+    rules: [
+      { name: 'Cuff Rushing', desc: 'Arresting or restraining someone without properly initiating the RP.', punishments: ['w'] },
+      { name: 'Unjustified Arrest', desc: 'Arresting a player without a legitimate RP reason.', punishments: ['w'] },
+      { name: 'Excessive Force', desc: 'Using more force than the situation reasonably requires.', punishments: ['w'] },
+      { name: 'Unjustified Taser', desc: 'Using a Taser without reasonable justification.', punishments: ['w'] },
+      { name: 'Unrealistic Police Tactics', desc: 'Using unrealistic tactics during traffic stops, arrests, searches, or other situations.', punishments: ['w'] },
+      { name: 'Pursuit Abuse', desc: 'Using unrealistic or abusive tactics during a vehicle pursuit.', punishments: ['w'] },
+      { name: 'Pursuit Interference', desc: 'Intentionally disrupting another officer\'s pursuit without a valid roleplay reason.', punishments: ['w'] },
+      { name: 'Unauthorized Backup', desc: 'Interfering in an incident or pursuit without the authorization department policy requires.', punishments: ['w'] },
+      { name: 'Emergency Equipment Abuse', desc: 'Abusing sirens, lights, vehicles, or department equipment.', punishments: ['w'] },
+      { name: 'Unrealistic FD/EMS RP', desc: 'Performing fire or medical roleplay that is clearly unrealistic or intentionally disruptive.', punishments: ['w'] },
+    ],
+  },
+  {
+    title: 'Driving Rules',
+    icon: Car,
+    rules: [
+      { name: 'Unrealistic Driving', desc: 'Driving in a manner that is clearly unrealistic for roleplay, including excessive off-road driving, driving across grass or terrain inappropriately, unrealistic high-speed maneuvers, and ignoring reasonable vehicle limitations. Reasonable maneuvers to avoid an obstruction or respond to a legitimate situation are not offenses.', punishments: ['w', 'k'] },
+      { name: 'Sidewalk Driving', desc: 'Driving on sidewalks without a legitimate RP reason.', punishments: ['w'] },
+      { name: 'Wrong-Way Driving', desc: 'Driving against traffic without a legitimate RP reason.', punishments: ['w'] },
+      { name: 'Blocking Multiple Roads (MDOT)', desc: 'Blocking multiple roads while playing as MDOT without a valid reason or authorization.', punishments: ['k'] },
+      { name: 'Mass Unrealistic Driving', desc: 'Widespread or repeated reckless driving that seriously disrupts roleplay.', punishments: ['k'] },
+      { name: 'Vehicle Ramming', desc: 'Intentionally ramming another vehicle without proper RP justification.', punishments: ['w', 'k'] },
+      { name: 'Unrealistic PIT', desc: 'Performing an excessive or unrealistic PIT maneuver.', punishments: ['w', 'k'] },
+      { name: 'Crash RP', desc: 'Ignoring a significant crash and continuing the scenario as if nothing happened.', punishments: ['w'] },
+      { name: 'Vehicle Abuse', desc: 'Using vehicles to intentionally block, trap, launch, push, or otherwise unfairly interfere with players.', punishments: ['w', 'k'] },
+      { name: 'Vehicle Flipping Abuse', desc: 'Abusing vehicle reset or flipping mechanics to escape consequences or gain an unfair advantage.', punishments: ['w'] },
+    ],
+  },
+  {
+    title: 'Staff & Community',
+    icon: ShieldCheck,
+    rules: [
+      { name: 'Ignoring Staff', desc: 'Refusing to follow reasonable staff instructions during an active moderation situation.', punishments: ['w'] },
+      { name: 'False Reports', desc: 'Knowingly submitting false reports or intentionally wasting staff resources.', punishments: ['w'] },
+      { name: 'Staff Impersonation', desc: 'Claiming to be a staff member or intentionally misrepresenting staff authority.', punishments: ['b'] },
+      { name: 'Staff Interference', desc: 'Intentionally interrupting, disrupting, or interfering with an active moderation situation.', punishments: ['w'] },
+      { name: 'Staff VDM', desc: 'Intentionally using a vehicle to hit or kill a staff member; exclude accidental desync.', punishments: ['k'] },
+      { name: 'Mass Staff RDM', desc: 'Killing multiple staff members, or repeatedly killing staff, without a valid roleplay reason.', punishments: ['k', 'b'] },
+      { name: 'Mass Staff VDM', desc: 'Using a vehicle to hit or kill multiple staff members without a valid roleplay reason.', punishments: ['k', 'b'] },
+      { name: 'Ban Evasion', desc: 'Using another account or method to bypass an active ban.', punishments: ['b'] },
+      { name: 'Severe Harassment or Targeted Abuse', desc: 'Serious harassment, targeted abuse, or threats directed at community members.', punishments: ['b'] },
+      { name: 'Server Raiding or Coordinated Disruption', desc: 'Coordinating raids, attacks, or disruptive activity against the server or its community.', punishments: ['b'] },
+    ],
+  },
+  {
+    title: 'Exploiting & Cheating',
+    icon: Lock,
+    rules: [
+      { name: 'Exploiting / Glitch Abuse', desc: 'Using an ER:LC exploit, glitch, bug, or unintended mechanic to gain an advantage.', punishments: ['b'] },
+      { name: 'Tool Abuse', desc: 'Abusing tools, glitches, or game mechanics to gain an unfair advantage.', punishments: ['k'] },
+      { name: 'Third-Party Cheats', desc: 'Using unauthorized cheats, scripts, or external tools to gain an unfair advantage.', punishments: ['pb'] },
+    ],
+  },
+  {
+    title: 'Uniforms & Appearance',
+    icon: Shirt,
+    rules: [
+      { name: 'Approved Appearance', desc: 'Players participating in department RP must use approved uniforms, liveries, and appearances.', punishments: [] },
+      { name: 'Restricted Appearance', desc: 'Troll uniforms, intentionally unrealistic department appearances, or unauthorized department liveries are prohibited.', punishments: ['vw', 'w'] },
+      { name: 'Default Livery or Uniform', desc: 'Using a default or unapproved livery or uniform when the server requires an approved one.', punishments: ['vw', 'w'] },
+      { name: 'Unrealistic Avatar', desc: 'Using an avatar that violates the server\'s appearance requirements. Staff first issue a verbal warning to change it; refusing after two warnings is a kick.', punishments: ['vw', 'k'] },
+    ],
+  },
+  {
+    title: 'Unauthorized Departments',
+    icon: Ban,
+    rules: [
+      { name: 'Unauthorized Agencies', desc: 'Roleplaying as unsupported or unauthorized agencies without management approval (e.g. FBI, CIA, ICE, or other unofficial federal agencies).', punishments: ['w', 'k'] },
+    ],
+  },
+];
